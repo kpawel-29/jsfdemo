@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <h:dataTable value="#{sweterF.allSweters}" var="sweter">
+
+      <f:facet name="header">Swetry</f:facet>
+      <h:column> 
+      <f:facet name="header">nazwa</f:facet>
+        #{sweter.name}
+      </h:column>
+      
+      <h:column> 
+      <f:facet name="header">rozmiar</f:facet>
+        #{sweter.size}
+      </h:column>
+      
+      <h:column> 
+      <f:facet name="header">cena</f:facet>
+        #{sweter.price}
+      </h:column>
+       
+      <h:column> 
+      <f:facet name="header">zamek</f:facet>
+        #{sweter.zip}
+      </h:column>
+      
+            <h:column>
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandLink value="#{msg.actionDelete}" action="#{sweterBean.deleteSweter}"/>
+      </h:column>
+      
+      
+     </h:dataTable>
+   <h:commandLink action="add?faces-redirect=true">
+			 <h:outputText value="dodaj kolejny sweter" />
+		  </h:commandLink>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

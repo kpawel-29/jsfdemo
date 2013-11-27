@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="sweterForm">
+          
+			<h:panelGrid columns="2">
+				
+				<h:outputText value="#{msg.sweterNameLabel}" />
+				<h:inputText id="name" value="#{sweterBean.sweter.name}"
+					validator="#{sweterBean.uniqueName}" required="#{true}">
+				</h:inputText>
+				
+				<h:outputText value="#{msg.sweterSizeLabel}" />
+				<h:inputText id="size" value="#{sweterBean.sweter.size}">
+				<f:validateDoubleRange minimum="20.5" maximum="50.5" />
+				</h:inputText>				
+								
+				<h:outputText value="#{msg.sweterPriceLabel}" />
+				<h:inputText id="price" value="#{sweterBean.sweter.price}">
+				</h:inputText>
+				
+				<h:outputText value="#{msg.sweterZipLabel}" />
+				<h:inputText id="zip" value="#{sweterBean.sweter.zip}"/>			
+				
+			
+			</h:panelGrid>
+			
+			<h:commandButton value="#{msg.sweterFormOKButton}"
+				action="#{sweterF.addSweterA}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

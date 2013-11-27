@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <h:dataTable value="#{bookF.allPersons}" var="book">
+ 
+      <f:facet name="header">Książki</f:facet>
+      <h:column>
+ 
+      <f:facet name="header">tytul</f:facet>
+ 
+        #{book.title}
+      </h:column>
+      
+      <h:column>
+ 
+      <f:facet name="header">autor</f:facet>
+        #{item.author}
+      </h:column>
+      
+      <h:column>
+ 
+      <f:facet name="header">rok publikacji/f:facet>
+        #{item.yop}
+      </h:column>
+      
+      
+     </h:dataTable>
+   <h:commandLink action="home?faces-redirect=true">
+			 <h:outputText value="dodaj kolejna osobe" />
+		  </h:commandLink>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

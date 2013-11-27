@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form id="personform">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="Tytuł" />
+				<h:inputText id="title" value="#{bookF.book.title}" />
+
+				<h:outputText value="Autor" />
+				<h:inputText id="author" value="#{bookF.book.author}" />
+				
+				<h:outputText value="ROk publickacji" />
+				<h:inputText id="yop" value="#{bookF.book.yop}" />
+			</h:panelGrid>
+
+			<h:commandButton value="Dodaj"
+				action="#{bookF.addBookA}" />
+				
+			<h:panelGrid>
+				<h:messages showDetail="#{true}" showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
