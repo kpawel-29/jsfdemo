@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="sweterForm">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.sweterNameLabel}" />
+				<h:inputText id="name" value="#{sweterBean.sweter.name}"
+					required="#{true}" >
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="Rozmiar" />
+				<h:inputText id="size" value="#{sweterF.sweter.size}">
+					<f:validateDoubleRange minimum="20.5" maximum="50.5" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				
+				<h:outputText value="Cena" />
+				<h:inputText id="price" value="#{sweterF.sweter.price}">
+				<f:validateDoubleRange minimum="0.5"  />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+
+				<h:outputText value="Zamek" />
+				<h:inputText id="zip" value="#{sweterF.sweter.zip}"
+					required="#{true}" >
+				</h:inputText>
+
+			
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.sweterFormOKButton}"
+				action="#{sweterBean.addSweter}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			<h:panelGrid id="beanState" columns="2">
+				<h:outputText value="#{msg.sweterNameLabel}" />
+				<h:outputText id="nameOutput" value="#{sweterBean.sweter.name}" />
+
+				<h:outputText value="#{msg.sweterPriceLabel}" />
+				<h:outputText id="priceOutput" value="#{sweterBean.sweter.price}" />
+
+				<h:outputText value="#{msg.sweterSizeLabel}" />
+				<h:outputText id="sizeOutput" value="#{sweterBean.sweter.size}" />
+
+				<h:outputText value="#{msg.sweterZipLabel}" />
+				<h:outputText id="zipOutput" value="#{sweterBean.sweter.zip}" />
+
+
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
