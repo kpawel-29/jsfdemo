@@ -32,6 +32,11 @@
         #{sweter.zip}
       </h:column>
       
+            <h:column> 
+      <f:facet name="header">marka</f:facet>
+        #{sweter.marka}
+      </h:column>
+      
             <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
         <h:commandLink value="#{msg.actionDelete}" action="#{sweterBean.deleteSweter}"/>

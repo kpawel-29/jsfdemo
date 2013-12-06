@@ -22,6 +22,7 @@ public class SweterManager {
 		sweter2.setPrice(sweter.getPrice());
 		sweter2.setSize(sweter.getSize());
 		sweter2.setZip(sweter.isZip());
+		sweter2.setMarka(sweter.getMarka());
 		db.add(sweter2);
 	}
 	//removes sweter with given name
